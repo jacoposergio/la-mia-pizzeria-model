@@ -14,5 +14,13 @@ namespace la_mia_pizzeria_static.Controllers
 
             return View(listaPizza);
         }
+
+        public IActionResult Detail(int id)
+        {
+            PizzaeriaDbContext db = new PizzaeriaDbContext();
+
+            Pizza pizza = db.Pizze.Where(p => p.Id == id).FirstOrDefault();
+            return View(pizza);
+        }
     }
 }
